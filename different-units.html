@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <title>Adaptive + Units</title>
+
+    <style>
+
+        body{
+         /* css variables / custom properties*/
+            --size:40vh;    
+            --left: calc( 100vw / 3 - var(--size) / 2);
+            
+            --color-dark:#333;
+            --color-light: #5678;
+            --color-mute: rgb(22, 76, 121);
+            background-color: var(--color-dark);
+        }
+/* 
+        @media (max-height:640px){
+            body{
+                --size:40vh;   
+            }
+        }
+
+        @media (max-width: 500px) and (orientation: portrait){
+            body{
+                background-color: brown; 
+            }
+     
+        } */
+
+        .vertical-center{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .circle{
+            width: var(--size); /* width: 40vh;   */
+            height: var(--size); /* height: 40vh; */
+            background-color: var(--color-light);
+            border-radius: 100%;
+            box-shadow: 0px 0px 20px #000;
+
+            left: var(--left);
+
+            /* left: calc( 100vw / 3 - 40vh / 2 ); */
+            /* left: calc( 33.33vw - 20vh );
+            left: calc( 100vw / 3 - 20vh ); */
+
+            /* back: transform, margin-left: -minus */
+            /* transform: translateX(-20vh); */
+        }
+
+        .line{
+            width: 100vw;
+            height: calc( var(--size) / 2);
+            /* background-color: var(--color-mute); */
+            background-image: radial-gradient(
+                transparent 50%,
+                var(--color-mute) 51%
+                );
+                background-size: 10px 15px;
+            left: calc( -1 * var(--left));
+            filter: drop-shadow( 0px 2px 3px #111);
+        }
+
+        .images .line-back{
+            height: calc(var(--size) /2 - 2*15px);
+            background-color: var(--color-mute);
+            
+            position: relative;
+            top: 15px;
+        } 
+
+        .images img{
+            display: inline-block;
+            height: calc(var(--size) /2 - 2 * 20px);
+
+            position: relative;
+            bottom:  7.3em;
+            left: 0.5em;
+            padding: 0 0.2em;
+        }
+
+        .images :not(.line-back):hover {
+            filter: brightness(125%);
+        } 
+
+        .circle .second-circle{
+            width: calc(var(--size) - 5em); 
+            height: calc(var(--size) - 5em); 
+            border-radius: 100%;
+            background-image: linear-gradient(to right, #17238ada, #8730aad2);
+
+            position:absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: -33.33%;
+            margin: auto;
+            
+            box-shadow: 2px 2px 10px #111;
+        }
+
+        .circle .second-circle i{
+            display: block;
+
+            color: blanchedalmond;
+            font-size: 3em;
+
+            position: absolute;
+            top: 40%;
+            right: 0;
+            bottom: 0;
+            left: 40%;
+            margin: auto;
+            text-shadow: 2px 2px #000;
+        }
+
+        .circle .second-circle:hover i {
+            filter: brightness(125%);
+        } 
+
+    </style>
+</head>
+<body>
+
+    <div class="circle vertical-center">
+        <div class="line vertical-center">
+            <div class="images">
+                <div class="line-back"></div> 
+                <img src="img/1.jpg" alt="">
+                <img src="img/2.jpg" alt="">
+                <img src="img/3.jpg" alt="">
+                <img src="img/4.jpg" alt="">
+                <img src="img/5.jpg" alt="">
+                <img src="img/6.jpg" alt="">
+                <img src="img/7.jpg" alt="">
+                <img src="img/8.jpg" alt="">
+                <img src="img/9.jpg" alt="">
+            </div>
+        <div class="second-circle"><i class="fas fa-film"></i> </div>
+        </div>
+    </div>
+    
+</body>
+</html>
